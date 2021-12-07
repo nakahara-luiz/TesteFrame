@@ -4,13 +4,13 @@
       placeholder="{{ 'number' | translate }}" [(ngModel)]="numberToDecompose" >
   </div>
   <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-    <button class="btn btn-primary form-control">
+    <button class="btn btn-primary form-control" (click)="decomposeNumber">
       {{ 'doDecomposition' | translate }}
     </button>
   </div>
 </div>
 
-<div *ngIf="decompResume">
-  <decomp-detail [decompResume]="decompResume" [decompSteps]="decompSteps">
+<div *ngIf="decompResult">
+  <decomp-detail [decompResume]="decompResult.DecompositionResume" [decompSteps]="decompResult.DecompositionSteps">
   </decomp-detail>
 </div>

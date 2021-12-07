@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { decompositionStep } from 'src/app/models/decompositionStep';
 
 @Component({
@@ -11,7 +12,7 @@ export class DetailComponent implements OnInit {
   @Input() decompSteps: decompositionStep[] | undefined
   @Input() decompResume: decompositionStep | undefined
 
-  constructor() { }
+  constructor(translate: TranslateService) { }
 
   ngOnInit(): void {
   }

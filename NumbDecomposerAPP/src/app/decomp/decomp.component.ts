@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { DecompositionResult } from '../models/decompositionResult';
 import { decompositionStep } from '../models/decompositionStep';
 import { DecompService } from './decomp.service';
 
@@ -9,17 +11,24 @@ import { DecompService } from './decomp.service';
 })
 export class DecompComponent implements OnInit {
 
-  numberToDecompose: Number = 0;
+  numberToDecompose: Number | undefined;
 
-  decompSteps: decompositionStep[] | undefined
-  decompResume: decompositionStep | undefined
+  decompResult: DecompositionResult | undefined;
 
-  constructor(private decompService: DecompService) { }
+  constructor(private decompService: DecompService,
+              translate: TranslateService) { }
 
   ngOnInit(): void {
   }
 
   decomposeNumber() {
-    this.decompService.getDecomposition(this.numberToDecompose);
+    if (this.numberToDecompose === undefined) return;
+
+    this.decompService.getDecomposition(this.numberToDecompose).subscribe(response => {
+      this.decompResult = response;
+    }, error => {
+      console.log(error);
+      alert(error.message);
+    });
   }
 }

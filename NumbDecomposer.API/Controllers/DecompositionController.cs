@@ -15,6 +15,11 @@ namespace NumbDecomposer.API.Controllers
             _decomposer = new DecomposerService();
         }
 
+        /// <summary>
+        /// Decompose a number systematically into prime factors
+        /// </summary>
+        /// <param name="number">Value to be decompose, must be ah integer</param>
+        /// <returns>Decomposition by steps at 'DecompositionSteps'and resumed version at 'DecompositionResume'</returns>
         [HttpGet, Route("decompose/{number}")]
         public ActionResult<DecompositionResultDTO> Decompose(int number)
         {
