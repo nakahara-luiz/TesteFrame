@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using NumbDecomposer.Domain;
+using NumbDecomposer.Infra.DTO;
 using NumbDecomposer.Service;
 
 namespace NumbDecomposer.API.Controllers
@@ -16,7 +16,7 @@ namespace NumbDecomposer.API.Controllers
         }
 
         [HttpGet, Route("decompose/{number}")]
-        public ActionResult<DecompositionResult> Decompose(int number)
+        public ActionResult<DecompositionResultDTO> Decompose(int number)
         {
             var result = _decomposer.Decompose(number);
             

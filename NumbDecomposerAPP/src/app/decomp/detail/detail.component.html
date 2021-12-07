@@ -1,0 +1,28 @@
+<div class="row mt-3">
+  <div class="grid">
+    <table>
+      <thead>
+        <tr>
+          <th>{{ 'decomposition' | translate }}</th>
+          <th>{{ 'prime-factor' | translate }}</th>
+          <th>{{ 'divisors' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let step of decompSteps">
+          <td>{{step.number}}</td>
+          <td>{{step.primeFactor}}</td>
+          <td>{{step.divisors}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-12" *ngIf="decompResume != null">
+    <h4>{{ 'summary' | translate }}</h4>
+    <div>
+      <p>{{ 'numberToDecompose' | translate }} : {{decompResume.number}}</p>
+      <p>{{ 'prime-divisor' | translate }}: {{decompResume.primeFactor}}</p>
+      <p>{{ 'divisors' | translate }}: {{decompResume.divisors}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "decompositionTitle": "DECOMPOSIÇÃO DE NÚMEROS",
+  "numberToDecompose": "Número de entrada",
+  "number": "NÚMERO",
+  "doDecomposition": "Decompor",
+
+  "decomposition": "Decomposição",
+  "prime-factor": "Fator Primo",
+  "divisors": "Divisores",
+
+  "summary": "Resumo da Decomposição",
+
+  "prime-divisor": "Divisores Primos"
+}

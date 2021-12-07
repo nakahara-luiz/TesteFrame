@@ -1,0 +1,16 @@
+<div class="container mt-3 mb-3">
+  <div class="row mt-3">
+    <input type="number" id="txtNumberToDecompose" class="form-control"
+      placeholder="{{ 'number' | translate }}" [(ngModel)]="numberToDecompose" >
+  </div>
+  <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+    <button class="btn btn-primary form-control">
+      {{ 'doDecomposition' | translate }}
+    </button>
+  </div>
+</div>
+
+<div *ngIf="decompResume">
+  <decomp-detail [decompResume]="decompResume" [decompSteps]="decompSteps">
+  </decomp-detail>
+</div>

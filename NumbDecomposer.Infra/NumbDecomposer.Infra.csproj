@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NumbDecomposer.Domain\NumbDecomposer.Domain.csproj" />
-    <ProjectReference Include="..\NumbDecomposer.Infra\NumbDecomposer.Infra.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
