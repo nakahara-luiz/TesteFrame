@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace NumbDecomposer.Domain;
+﻿namespace NumbDecomposer.Domain;
 public class DecompositionResult
 {
     private int _originalNumber;

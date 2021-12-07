@@ -6,18 +6,18 @@ namespace NumbDecomposer.Service.Helpers
     {
         public void PopulateDivisors(DecompositionResult result)
         {
-            var prevPrimeDecomposer = 1;
+            var prevPrimeDivisor = 1;
             result.DivisorSteps.Add(FirstDivisorStep());
 
             foreach (var step in result.DecompositionSteps) 
             {
                 var divisorFindStep = new DivisorStep();
                 
-                foreach (var prevDivisorStep in GetDivisorStep(prevPrimeDecomposer, step, result.DivisorSteps))
+                foreach (var prevDivisorStep in GetDivisorStep(prevPrimeDivisor, step, result.DivisorSteps))
                     foreach (var divisor in prevDivisorStep.Divisors)
                         divisorFindStep.AddDivisor(divisor * step.PrimeDivisor);
                 
-                prevPrimeDecomposer = step.PrimeDivisor;
+                prevPrimeDivisor = step.PrimeDivisor;
 
                 result.DivisorSteps.Add(divisorFindStep);
             }
@@ -31,9 +31,9 @@ namespace NumbDecomposer.Service.Helpers
             return firstStep;
         }
 
-        private IList<DivisorStep> GetDivisorStep(int prevPrimeDecomposer, DecompositionStep step, IList<DivisorStep> divisorSteps)
+        private IList<DivisorStep> GetDivisorStep(int prevPrimeDivisor, DecompositionStep decompStep, IList<DivisorStep> divisorSteps)
         {
-            return prevPrimeDecomposer != step.PrimeDivisor
+            return prevPrimeDivisor != decompStep.PrimeDivisor
                 ? divisorSteps
                 : new List<DivisorStep> { divisorSteps.Last() };
         }
